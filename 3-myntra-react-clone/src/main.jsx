@@ -8,16 +8,21 @@ import Bag from "./routes/Bag.jsx";
 import Home from "./routes/Home.jsx";
 import { Provider } from "react-redux";
 import { myntrastore } from "./store/index.js";
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "/bag", element: <Bag /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <App />,
-    children: [
-      { path: "/", element: <Home /> },
-      { path: "/bag", element: <Bag />  },
-    ],
-  },
-]);
+    basename: "/Myntra_React_Clone", // 👈 Add this
+  }
+);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
