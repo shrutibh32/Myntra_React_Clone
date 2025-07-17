@@ -12,7 +12,7 @@ useEffect(()=>{
   const controller=new AbortController();
   const signal=controller.signal;
 dispatch(fetchStatusSliceActions.MarkFetchingStarted());
-  fetch("http://localhost:8080/items",{signal})      //Server
+  fetch("https://kgcoding-myntra-backend.onrender.com/items",{signal})      //Server
   .then((res)=>res.json())
   .then(({items})=>{
 dispatch(fetchStatusSliceActions.MarkFetchDone());
